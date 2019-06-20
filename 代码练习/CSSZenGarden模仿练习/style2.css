@@ -1,0 +1,336 @@
+body {
+    margin : 0;
+    padding : 0;
+    background : url('outer_shadow.gif') 0 0 repeat-x #e6e6dc;
+    color : #999;
+    font-family : tahoma, arial, helvetica, sans-serif;
+    }
+    h1, h2, h3, h4 {
+    margin : 0;
+    padding : 0;
+    }
+    p {
+    padding-left : 10px;
+    padding-right : 10px;
+    text-align : justify;
+    font-size : 0.8em;
+    }
+    a:link, a:visited {
+    color : #567b9b;
+    text-decoration : none;
+    }
+    a:hover, a:active {
+    background : #ddeeff;
+    }
+    .page-wrapper {
+    background : url('side.gif') 100% 0 repeat-y transparent;
+    }
+    .intro {
+    margin : 100px 275px 0 100px;
+    background : url('inner_shadow.gif') 0 0 repeat-x #fff;
+    padding : 30px 10px 10px 10px;
+    border-left : 1px solid #ccc;
+    }
+    header {
+    color : #fff;
+    height : 100px;
+    width : 100%;
+    top : 0;
+    left : 0;
+    right : 0;
+    position : absolute;
+    background : url('top.gif') 0 0 repeat-x transparent;
+    z-index : 10;
+    }
+    header h1 {
+    height : 130px;
+    font-size : 1.5em;
+    background-color : transparent;
+    text-decoration : none;
+    text-transform : lowercase;
+    display : none;
+    font-weight : normal;
+    position : absolute;
+    right : 20px;
+    bottom : 3px;
+    color : #fff;
+    text-indent : 100%;
+    white-space : nowrap;
+    overflow : hidden;
+    }
+    header h2 {
+    position : absolute;
+    top : 0;
+    left : 0;
+    height : 115px;
+    width : 400px;
+    background : url('top.title.gif') 0 0 no-repeat transparent;
+    text-indent : 100%;
+    white-space : nowrap;
+    overflow : hidden;
+    }
+    .summary {
+    width : 270px;
+    float : left;
+    border-top : 1px solid #ddd;
+    border-right : 1px solid #ddd;
+    border-left : 1px solid #ddd;
+    background : url('demo.bg.gif') 100% 100% no-repeat #e5e5e5;
+    margin : 0 15px 10px 0;
+    padding : 0 0 3px 0;
+    font-size : 1em;
+    }
+    .summary p, .summary p:first-letter {
+    text-align : center;
+    color : #666;
+    font-weight : normal;
+    }
+    .summary p:first-child {
+    background : url('demo.p1.gif') 0% 0% no-repeat #fff;
+    height : 176px;
+    padding : 0 0 0 0;
+    margin : 0;
+    text-indent : 100%;
+    white-space : nowrap;
+    overflow : hidden;
+    }
+    .summary p:last-child {
+    position : relative;
+    bottom : 0;
+    text-align : right;
+    padding-bottom : 40px;
+    text-indent : 200%;
+    white-space : nowrap;
+    overflow : hidden;
+    }
+    .summary > p:nth-child(3) {
+    padding-bottom : 0;
+    }
+    .summary p:last-child a {
+    display : block;
+    visibility : visible;
+    position : absolute;
+    right : 10px;
+    margin-left : 75px;
+    font-size : 10pt;
+    text-indent : 0;
+    left : 0;
+    background : none;
+    background : url('file.gif') 100% 50% no-repeat transparent;
+    padding-right : 18px;
+    color : #aaa;
+    font-variant : small-caps;
+    text-transform : capitalize;
+    }
+    .summary p:last-child a:first-child {
+    top : 0;
+    }
+    .summary p:last-child a:last-child {
+    top : 30px;
+    }
+    .summary p:last-child a:hover {
+    background : url('file2.gif') 100% 50% no-repeat transparent;
+    color : #819bb2;
+    }
+    .preamble h3 {
+    display : none;
+    }
+    .preamble p {
+    font-size : 0.9em;
+    color : #819bb2;
+    padding-left : 300px;
+    }
+    .supporting {
+    margin : 0 275px 0 100px;
+    background : #fff;
+    padding : 10px 0 10px 0;
+    border-left : 1px solid #ccc;
+    }
+    .supporting div {
+    clear : both;
+    }
+    .supporting h3 {
+    padding-top : 30px;
+    height : 25px;
+    border-bottom : 1px solid #819bb2;
+    text-indent : 100%;
+    white-space : nowrap;
+    overflow : hidden;
+    }
+    .explanation {
+    padding-left : 10px;
+    padding-right : 10px;
+    }
+    .explanation h3 {
+    background : url('h3.explanation.gif') 100% 100% no-repeat #fff;
+    }
+    .explanation p:nth-child(2) {
+    width : 45%;
+    float : left;
+    }
+    .explanation p:nth-child(3) {
+    width : 45%;
+    float : right;
+    }
+    .participation {
+    background : url('stone.circle.jpg') 50% 100% no-repeat #fff;
+    padding-left : 10px;
+    padding-right : 10px;
+    }
+    .participation h3 {
+    background : url('h3.participation.gif') 100% 100% no-repeat #fff;
+    }
+    .participation p:nth-child(3) {
+    width : 45%;
+    float : left;
+    }
+    .participation p:nth-child(4) {
+    width : 45%;
+    float : right;
+    }
+    .participation p:nth-child(5) {
+    clear : both;
+    }
+    .benefits {
+    padding-left : 10px;
+    padding-right : 10px;
+    }
+    .benefits h3 {
+    background : url('h3.benefits.gif') 100% 100% no-repeat #fff;
+    }
+    .requirements {
+    background : url('bamboo.leaf.jpg') 100% 100% no-repeat #fff;
+    padding-left : 10px;
+    padding-right : 10px;
+    }
+    .requirements h3 {
+    background : url('h3.requirements.gif') 100% 100% no-repeat #fff;
+    }
+    .requirements p:nth-child(3) {
+    width : 45%;
+    float : left;
+    }
+    .requirements p:nth-child(4), .requirements p:nth-child(5) {
+    width : 45%;
+    float : right;
+    }
+    .requirements p:nth-child(6) {
+    clear : both;
+    }
+    footer {
+    margin-top : 15px;
+    padding-top : 40px;
+    padding-bottom : 20px;
+    font-size : 0.8em;
+    clear : both;
+    text-align : center;
+    background : url('bamboo2.gif') 10px 0 repeat-x #fff;
+    }
+    footer a:link, footer a:visited {
+    text-decoration : none;
+    color : #999;
+    }
+    footer a:hover, footer a:active {
+    background : none;
+    text-decoration : underline;
+    }
+    .sidebar {
+    z-index : 2;
+    background : url('pawn.jpg') 50% 100% no-repeat transparent;
+    position : absolute;
+    top : 100px;
+    right : 100px;
+    float : right;
+    width : 175px;
+    }
+    .sidebar h3 {
+    border : none;
+    margin-top : 5px;
+    margin-bottom : 10px;
+    height : 30px;
+    text-indent : 100%;
+    white-space : nowrap;
+    overflow : hidden;
+    }
+    .sidebar .wrapper {
+    padding-top : 20px;
+    color : #666;
+    }
+    .sidebar .wrapper a:link, .sidebar .wrapper a:visited {
+    color : #819bb2;
+    text-decoration : none;
+    }
+    .sidebar .wrapper a:hover, .sidebar .wrapper a:active {
+    background : none;
+    text-decoration : underline;
+    }
+    .sidebar .wrapper div {
+    font-size : 0.7em;
+    padding : 8px 8px 10px 8px;
+    background : url('sidesplit.gif') 0 100% repeat-x transparent;
+    }
+    .sidebar .wrapper ul {
+    list-style-type : none;
+    margin : 0;
+    padding-left : 15px;
+    }
+    .sidebar .wrapper ul li {
+    list-style-image : url('bullet.gif');
+    padding : 0 0 0 0;
+    margin : 0 0 10px 0;
+    }
+    .design-selection h3 {
+    background : url('h3.side.select.gif') 50% 0% no-repeat #e5e5e5;
+    }
+    .design-selection a {
+    display : block;
+    }
+    .design-selection a.designer-name {
+    display : inline;
+    }
+    #lfavorites h3 {
+    background : url('h3.side.favourites.gif') 50% 0% no-repeat #e5e5e5;
+    }
+    #lfavorites a {
+    display : block;
+    }
+    #lfavorites a.designer-name {
+    display : inline;
+    }
+    .design-archives h3 {
+    background : url('h3.side.archives.gif') 50% 0% no-repeat #e5e5e5;
+    }
+    .zen-resources {
+    margin-bottom : 150px;
+    }
+    .zen-resources h3 {
+    background : url('h3.side.resources.gif') 50% 0% no-repeat #e5e5e5;
+    }
+    .extra1 {
+    position : absolute;
+    top : 0;
+    right : 0;
+    width : 275px;
+    height : 130px;
+    background : url('top.rip.gif') 0% 100% no-repeat transparent;
+    z-index : 20;
+    }
+    .extra2 {
+    position : absolute;
+    top : 125px;
+    left : 105px;
+    width : 30px;
+    height : 30px;
+    background : url('corner1.gif') 0% 0% no-repeat transparent;
+    z-index : 20;
+    }
+    .extra3 {
+    position : absolute;
+    top : 125px;
+    left : 359px;
+    width : 30px;
+    height : 30px;
+    background : url('corner2.gif') 0% 100% no-repeat transparent;
+    z-index : 20;
+    }
+    

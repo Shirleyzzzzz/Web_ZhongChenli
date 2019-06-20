@@ -1,0 +1,130 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:82:"C:\phpStudy01\PHPTutorial\WWW\tp5\public/../application/admin\view\user\index.html";i:1554774337;}*/ ?>
+<!DOCTYPE html>
+<!-- saved from url=(0095)http://218.25.82.202:18080/suite/weChatPublic/weChatView.do?feature=weChat&action=myApplication -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+<scrippt" src="/static/js/jquery-1.12.4.min.js" type="text/javascript"></script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+<link href="/static/css/wx-css.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/static/js/simpleModal.js"></script>
+<script type="text/javascript" src="/static/js/base64.js"></script>
+<!--[if lt IE 9]> <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script> < ![endif]-->
+
+<title>
+
+ 
+
+
+  
+  
+  
+    
+      
+      
+        辽宁水利职业学院
+      
+    
+  
+</title>
+<!--[if lt IE 9]> <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script> < ![endif]-->
+</head>
+
+<body>
+    
+      
+      
+<section class="c-warp jx">
+  <dl class="login">
+  <dt><img src="/static/img/banner.jpg"></dt>
+  <dd>
+    <div class="user">
+       <em>*</em><input type="text" name="userName" id="userName" value="" placeholder="您的账号">
+    </div>
+    <div class="psw">
+       <em>*</em><input type="password" name="passWord" id="passWord" value="" placeholder="输入密码">
+    </div>
+    <ul class="bbsArea eList faq f2">
+      <li class="child">
+          <label class="inlineS check" id="type1"><i class="rd"></i><input type="radio" name="gotoType" value="1" checked=""><span>移动版</span><img src="/static/img/correct.png" alt="" width="16"></label>
+          <label class="inlineS" id="type2"><i class="rd"></i><input type="radio" name="gotoType" value="2"><span>电脑版</span><img src="/static/img/correct.png" alt="" width="16" style="display: none;"></label>
+          <label class="inlineS" onclick="location.href=&#39;/suite/portal/portalView.do?siteKey=0&#39;;"><i class="rd"></i><input type="radio" name="gotoType" value="1"><span>访客</span><img src="/static/img/correct.png" alt="" width="16"></label>
+      </li>
+    </ul>
+  </dd>
+  <dd>
+     <a href="javascript:void(0);" onclick="doSubmit($(&#39;#weChatForm&#39;)[0])" class="button-b">确定</a>
+  </dd>
+  </dl>
+  <div class="fixfoot fcen">
+     <div>辽宁水利职业学院</div>  <span>技术支持: 辽宁水利职业学院</span> 13889257069
+  </div>
+  <div style="height:80px;"></div>
+</section>
+<script language="javascript">
+  $(function(){
+    var gotoType=$("input[name='gotoType']:checked").val();
+    if(gotoType==2){
+      $("#type1").children("img").hide();
+      $("#type2").children("img").show();
+    } else {
+      $("#type1").children("img").show();
+      $("#type2").children("img").hide();
+    }
+
+    $(".f2 .child .inlineS").click(function(){
+      $(this).siblings().children("img").hide();
+      $(this).children("img").show();
+    }); 
+  });
+
+  function doSubmit(theForm){
+    var gotoType=$("input[name='gotoType']:checked").val();
+    var userName=$('#userName').val();
+    var password=$("#passWord").val();
+    if(userName=="" && password == "" && "2"==gotoType){
+      window.location.href = "/suite/portal/portalView.do?siteKey=0"
+      return;
+    }
+
+    if(userName=="" || password == ""){
+      $.warn("请输入账号和密码！");
+      return;
+    }
+
+    var b = new Base64();
+    var str = b.encode(password);
+   var url="/suite/weChat/bindOpenId.do";
+   $.post(url,{userName:$('#userName').val(), passWord:str},function(result){
+     if(result == 'success'){
+       var gotoType=$("input[name='gotoType']:checked").val();
+       if("2"==gotoType){
+          window.location.href = "/suite/portal/portalView.do?siteKey=0"
+       } else {
+          window.location.href = "/suite/weChatPublic/weChatView.do?feature=weChat&action=myApplication"
+       }
+     }else if(result == 'usermiss'){
+       $.warn("没有该用户！");
+     } else if(result == 'pwderror'){
+       $.warn("密码错误！");
+     } else if(result == 'unAudit'){
+       $.warn("您的账号正在审核中，请耐心等待...");
+     } else if(result == 'error'){
+       $.error("登录失败！");
+     } else if(result != ''){
+       window.location.href = "/suite"+result;
+     }
+   });
+  }
+</script>
+
+
+
+
+
+</body></html>

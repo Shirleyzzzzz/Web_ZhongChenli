@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- saved from url=(0110)http://218.25.82.202:18080/suite/androidHippo/topicList.do?userKey=25634&practiceKey=1327622&logType=&address= -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+<title>充值余额</title>
+<link href="/static/css/wx-css.css" rel="stylesheet" type="text/css">
+<link href="/static/css/style.css" rel="stylesheet" type="text/css">
+<script src="/static/js/jquery-1.12.4.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+
+
+
+<h1 class="topArea hd0">
+            <p>充值余额&nbsp;</p>
+            <a href="javascript:void(0);" onclick="goback(&#39;true&#39;)" class="backto"></a>
+            <a href="javascript:void(0);" onclick="myAppLication()" class="home"></a>
+        </h1>
+        
+          <div class="h"></div>
+        
+<script type="text/javascript">
+var browser = {
+      versions: function() {
+        var u = navigator.userAgent, app = navigator.appVersion;
+        return {//移动终端浏览器版本信息
+          trident: u.indexOf('Trident') > -1, //IE内核
+          presto: u.indexOf('Presto') > -1, //opera内核
+          webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+          gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+          mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+          ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+          android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+          iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+          iPad: u.indexOf('iPad') > -1, //是否iPad
+          webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+        };
+      }(),
+      language: (navigator.browserLanguage || navigator.language).toLowerCase()
+  }
+
+  function goback(backToHome){
+    if(backToHome == "false"){
+    
+       
+       
+             history.go(-1);
+        
+      
+    }else{
+      myAppLication();
+    }
+
+  }
+
+  function myAppLication(){
+    
+      
+      
+        if(browser.versions.android && typeof (android) != 'undefined'){
+          android.myAppLication();
+        } else {
+          window.location.href = "/suite/weChatPublic/weChatView.do?feature=weChat&action=myApplication";
+        }
+      
+    
+  }
+</script>
+
+    <section class="c-warp jx" id="topicListID" style="display:none;">
+      <ul class="bbsArea inside" id="taskListID">
+      
+      
+      </ul>
+      <div style="height:50px;"></div>
+      <a href="javascript:void(0)" onclick="createTopicPortal();" class="bSubmit b0">添加主题</a>
+  </section>
+  <section class="c-warp jx" id="topicEditID" style="display:">
+    <div class="course">
+        <div class="h46"></div>
+		<!--
+        <div class="search inspect" id="titleId">
+          <input type="text" id="title" name="title" placeholder="标题">
+        </div>
+		-->
+        <div class="textA">
+           <textarea name="value" id="value"></textarea>
+        </div>
+        
+        <input type="hidden" name="forumKey" id="forumKey" value="1328530">
+        
+        <a href="javascript:void(0);" onclick="submit()" class="button-b">确定</a>
+        <a href="javascript:void(0);" onclick="cancel()" class="bCancel">取消</a>
+    </div>
+    <div style="height:93px;"></div>
+  </section>
+
+<script type="text/javascript">
+var curPage = 1;
+function getOtherTopic(){
+  curPage++;
+  var url="/suite/androidHippo/topicList.do";
+  $.post(url,{userKey: "25634",practiceKey:"1327622",currentPage:curPage},function(result){
+    $("#taskListID").append(result);
+    if(curPage>1){
+      $("#moreID").hide();
+      if(curPage > 2){
+        $("#moreID"+(curPage-1)).hide();
+      }
+      if(curPage<'0'){
+        $("#moreID"+curPage).show();
+      }
+    }
+  },'text');
+}
+
+function viewTopic(topicKey){
+  var url = "/suite/androidHippo/viewTopic.do?userKey=25634&practiceKey=1327622&topicKey="+topicKey;
+  window.location.href=url;
+}
+
+function createTopicPortal(forumKey){
+  $("#topicEditID").show();
+  $("#topicListID").hide();
+}
+
+$("#title").on("focus",function(){
+    $(this).siblings().hide();
+  })
+function submit(){
+  var forumKey = $("#forumKey").val();
+  if(forumKey==null||forumKey==""){
+    return false;
+  }
+  var title = $("#title").val();
+  var value = $("#value").val();
+  if(title==null||title==""||title.trim().length==0){
+    return false;
+  }
+  var url = "/suite/androidSkills/saveTopicPortal.do?act=createTopic";
+  $.post(url,{"title":title,"value":value,"forumKey":forumKey,"userKey":"25634","comeFrom":"student"},function (result){
+    $("#taskListID").html("");
+    curPage = 0;
+    getOtherTopic();
+    $("#title").val("");
+    $("#value").val("");
+    $("#topicEditID").hide();
+    $("#topicListID").show();
+   //window.location.reload();
+  });
+}
+
+function cancel(){
+  $("#topicEditID").hide();
+  $("#topicListID").show();
+}
+</script>
+
+
+</body></html>
